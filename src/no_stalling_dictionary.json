@@ -1,0 +1,466 @@
+{
+    "directoryL2_I": [
+        "PutML2",
+        "PutSL2",
+        "GetSL2",
+        "GetML2"
+    ],
+    "directoryL2_M": [
+        "PutML2",
+        "PutSL2",
+        "GetSL2",
+        "GetML2"
+    ],
+    "directoryL2_O": [
+        "PutML2",
+        "PutSL2",
+        "GetSL2",
+        "GetML2"
+    ],
+    "directoryL2_S": [
+        "PutML2",
+        "PutSL2",
+        "GetSL2",
+        "GetML2"
+    ],
+    "directoryL1_1_I__C__I": [
+        "PutSL1_1",
+        "GetSL1_1",
+        "PutML1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_I__C__M": [
+        "Fwd_GetSL2",
+        "PutSL1_1",
+        "Fwd_GetML2",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_I__C__O": [
+        "Fwd_GetSL2",
+        "PutSL1_1",
+        "Fwd_GetML2",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_I__C__S": [
+        "InvL2",
+        "PutSL1_1",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_M__C__M": [
+        "Fwd_GetSL2",
+        "PutSL1_1",
+        "Fwd_GetML2",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_S__C__M": [
+        "Fwd_GetSL2",
+        "PutSL1_1",
+        "Fwd_GetML2",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_S__C__O": [
+        "Fwd_GetSL2",
+        "PutSL1_1",
+        "Fwd_GetML2",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_S__C__S": [
+        "InvL2",
+        "PutSL1_1",
+        "PutML1_1",
+        "GetSL1_1",
+        "GetML1_1"
+    ],
+    "directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mFwd_GetML2__dM_x_pI_store__C__M": [
+        "Inv_AckL1_1",
+        "GetM_Ack_DL1_1"
+    ],
+    "directoryL1_1_mFwd_GetSL2__dM_GetS_x_pI_load__C__M": [
+        "WBL1_1",
+        "GetS_AckL1_1"
+    ],
+    "directoryL1_1_mFwd_GetSL2__dM_GetS_x_pS__C__M": [
+        "WBL1_1"
+    ],
+    "directoryL1_1_mFwd_GetSL2__dS_x_pI_load__C__M": [
+        "GetS_AckL1_1"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__I_store": [
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__I_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__O_store": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetM_Ack_DL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__O_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__S_store": [
+        "InvL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_1_mGetML1_1__I__C__S_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__S__C__O_store": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetM_Ack_DL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__S__C__O_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__S__C__S_store": [
+        "InvL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_1_mGetML1_1__S__C__S_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_1_mGetML1_1__mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mGetML1_1__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mGetSL1_1__I__C__I_load": [
+        "GetS_AckL2"
+    ],
+    "directoryL1_1_mGetSL1_1__M_GetS__C__M": [
+        "WBL1_1"
+    ],
+    "directoryL1_1_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mevict__I__C__M_evict": [
+        "Fwd_GetSL2",
+        "Put_AckL2",
+        "Fwd_GetML2"
+    ],
+    "directoryL1_1_mevict__I__C__M_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_1_mevict__I__C__O_evict": [
+        "Fwd_GetSL2",
+        "Put_AckL2",
+        "Fwd_GetML2"
+    ],
+    "directoryL1_1_mevict__I__C__O_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_1_mevict__I__C__S_evict": [
+        "InvL2",
+        "Put_AckL2"
+    ],
+    "directoryL1_1_mevict__I__C__S_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__M": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_1"
+    ],
+    "directoryL1_1_mevict__dM_x_pI_store__C__M": [
+        "Inv_AckL1_1",
+        "GetM_Ack_DL1_1"
+    ],
+    "cacheL1_2_I": [],
+    "cacheL1_2_I_load": [
+        "GetS_AckL1_2"
+    ],
+    "cacheL1_2_I_store": [
+        "GetM_Ack_ADL1_2",
+        "GetM_Ack_DL1_2",
+        "Inv_AckL1_2"
+    ],
+    "cacheL1_2_I_store_GetM_Ack_AD": [
+        "Inv_AckL1_2"
+    ],
+    "cacheL1_2_M": [
+        "Fwd_GetSL1_2",
+        "Fwd_GetML1_2"
+    ],
+    "cacheL1_2_M_evict": [
+        "Fwd_GetSL1_2",
+        "Put_AckL1_2",
+        "Fwd_GetML1_2"
+    ],
+    "cacheL1_2_M_evict_x_I": [
+        "Put_AckL1_2"
+    ],
+    "cacheL1_2_S": [
+        "InvL1_2"
+    ],
+    "cacheL1_2_S_evict": [
+        "InvL1_2",
+        "Put_AckL1_2"
+    ],
+    "cacheL1_2_S_evict_x_I": [
+        "Put_AckL1_2"
+    ],
+    "cacheL1_2_S_store": [
+        "GetM_Ack_ADL1_2",
+        "GetM_Ack_DL1_2",
+        "InvL1_2",
+        "Inv_AckL1_2"
+    ],
+    "cacheL1_2_S_store_GetM_Ack_AD": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_I__C__I": [
+        "GetSL1_2",
+        "PutSL1_2",
+        "GetML1_2",
+        "PutML1_2"
+    ],
+    "directoryL1_2_I__C__M": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_I__C__O": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_I__C__S": [
+        "InvL2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_M__C__M": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_S__C__M": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_S__C__O": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_S__C__S": [
+        "InvL2",
+        "GetSL1_2",
+        "PutSL1_2",
+        "PutML1_2",
+        "GetML1_2"
+    ],
+    "directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mFwd_GetML2__dM_x_pI_store__C__M": [
+        "GetM_Ack_DL1_2",
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mFwd_GetSL2__dM_GetS_x_pI_load__C__M": [
+        "GetS_AckL1_2",
+        "WBL1_2"
+    ],
+    "directoryL1_2_mFwd_GetSL2__dM_GetS_x_pS__C__M": [
+        "WBL1_2"
+    ],
+    "directoryL1_2_mFwd_GetSL2__dS_x_pI_load__C__M": [
+        "GetS_AckL1_2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__I_store": [
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__I_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__O_store": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetM_Ack_DL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__O_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__S_store": [
+        "InvL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_2_mGetML1_2__I__C__S_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__S__C__O_store": [
+        "Fwd_GetSL2",
+        "Fwd_GetML2",
+        "GetM_Ack_DL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__S__C__O_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__S__C__S_store": [
+        "InvL2",
+        "GetM_Ack_ADL2",
+        "Inv_AckL2",
+        "GetM_Ack_DL2"
+    ],
+    "directoryL1_2_mGetML1_2__S__C__S_store_GetM_Ack_AD": [
+        "Inv_AckL2"
+    ],
+    "directoryL1_2_mGetML1_2__mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mGetML1_2__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mGetSL1_2__I__C__I_load": [
+        "GetS_AckL2"
+    ],
+    "directoryL1_2_mGetSL1_2__M_GetS__C__M": [
+        "WBL1_2"
+    ],
+    "directoryL1_2_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mevict__I__C__M_evict": [
+        "Fwd_GetSL2",
+        "Put_AckL2",
+        "Fwd_GetML2"
+    ],
+    "directoryL1_2_mevict__I__C__M_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_2_mevict__I__C__O_evict": [
+        "Fwd_GetSL2",
+        "Put_AckL2",
+        "Fwd_GetML2"
+    ],
+    "directoryL1_2_mevict__I__C__O_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_2_mevict__I__C__S_evict": [
+        "InvL2",
+        "Put_AckL2"
+    ],
+    "directoryL1_2_mevict__I__C__S_evict_x_I": [
+        "Put_AckL2"
+    ],
+    "directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__M": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__O": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__S": [
+        "Inv_AckL1_2"
+    ],
+    "directoryL1_2_mevict__dM_x_pI_store__C__M": [
+        "GetM_Ack_DL1_2",
+        "Inv_AckL1_2"
+    ],
+    "cacheL1_1_I": [],
+    "cacheL1_1_I_load": [
+        "GetS_AckL1_1"
+    ],
+    "cacheL1_1_I_store": [
+        "Inv_AckL1_1",
+        "GetM_Ack_ADL1_1",
+        "GetM_Ack_DL1_1"
+    ],
+    "cacheL1_1_I_store_GetM_Ack_AD": [
+        "Inv_AckL1_1"
+    ],
+    "cacheL1_1_M": [
+        "Fwd_GetSL1_1",
+        "Fwd_GetML1_1"
+    ],
+    "cacheL1_1_M_evict": [
+        "Fwd_GetSL1_1",
+        "Put_AckL1_1",
+        "Fwd_GetML1_1"
+    ],
+    "cacheL1_1_M_evict_x_I": [
+        "Put_AckL1_1"
+    ],
+    "cacheL1_1_S": [
+        "InvL1_1"
+    ],
+    "cacheL1_1_S_evict": [
+        "Put_AckL1_1",
+        "InvL1_1"
+    ],
+    "cacheL1_1_S_evict_x_I": [
+        "Put_AckL1_1"
+    ],
+    "cacheL1_1_S_store": [
+        "Inv_AckL1_1",
+        "InvL1_1",
+        "GetM_Ack_ADL1_1",
+        "GetM_Ack_DL1_1"
+    ],
+    "cacheL1_1_S_store_GetM_Ack_AD": [
+        "Inv_AckL1_1"
+    ]
+}
