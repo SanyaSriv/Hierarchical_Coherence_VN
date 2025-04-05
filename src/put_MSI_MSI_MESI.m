@@ -1455,6 +1455,7 @@
       alias cbe: i_directoryL1_2[m].cb[adr] do
     switch cbe.State
       case directoryL1_2_I__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_I__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -1553,6 +1554,7 @@
       endswitch;
 
       case directoryL1_2_I__C__I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_I__C__I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_2:
           cbe.cluster_req_msg := inmsg;
@@ -1606,6 +1608,7 @@
       endswitch;
 
       case directoryL1_2_I__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_I__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -1704,6 +1707,7 @@
       endswitch;
 
       case directoryL1_2_I__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_I__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_2:
           cbe.cluster_req_msg := inmsg;
@@ -1780,6 +1784,7 @@
       endswitch;
 
       case directoryL1_2_M__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_M__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -1859,6 +1864,7 @@
       endswitch;
 
       case directoryL1_2_S__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_S__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -1998,6 +2004,7 @@
       endswitch;
 
       case directoryL1_2_S__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_S__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -2137,6 +2144,7 @@
       endswitch;
 
       case directoryL1_2_S__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_S__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_2:
           cbe.cluster_req_msg := inmsg;
@@ -2212,6 +2220,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2242,6 +2251,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2272,6 +2282,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetML2__dM_x_pI_store__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetML2__dM_x_pI_store__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL1_2:
           cbe.cl := inmsg.cl;
@@ -2299,6 +2310,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetSL2__dM_GetS_x_pI_load__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetSL2__dM_GetS_x_pI_load__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_2:
           cbe.cl := inmsg.cl;
@@ -2320,6 +2332,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetSL2__dM_GetS_x_pS__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetSL2__dM_GetS_x_pS__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL1_2:
           if (inmsg.src = cbe.ownerL1_2) then
@@ -2354,6 +2367,7 @@
       endswitch;
 
       case directoryL1_2_mFwd_GetSL2__dS_x_pI_load__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mFwd_GetSL2__dS_x_pI_load__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_2:
           cbe.cl := inmsg.cl;
@@ -2386,6 +2400,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__I__C__I_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__I__C__I_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.cl := inmsg.cl;
@@ -2425,6 +2440,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__I__C__I_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__I__C__I_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -2447,6 +2463,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__I__C__S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__I__C__S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.acksExpectedL2 := inmsg.acksExpectedL2;
@@ -2505,6 +2522,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__I__C__S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__I__C__S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -2527,6 +2545,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__S__C__S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__S__C__S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.acksExpectedL2 := inmsg.acksExpectedL2;
@@ -2669,6 +2688,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__S__C__S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__S__C__S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -2733,6 +2753,7 @@
       endswitch;
 
       case directoryL1_2_mGetML1_2__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetML1_2__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2763,6 +2784,7 @@
       endswitch;
 
       case directoryL1_2_mGetSL1_2__I__C__I_load:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetSL1_2__I__C__I_load"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL2:
           cbe.cl := inmsg.cl;
@@ -2788,6 +2810,7 @@
       endswitch;
 
       case directoryL1_2_mGetSL1_2__M_GetS__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mGetSL1_2__M_GetS__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL1_2:
           if !(inmsg.src = cbe.ownerL1_2) then
@@ -2808,6 +2831,7 @@
       endswitch;
 
       case directoryL1_2_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2838,6 +2862,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__E_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__E_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           msg := RespL2(adr,GetM_Ack_DL2,m,inmsg.src,cbe.cl);
@@ -2864,6 +2889,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__E_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__E_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -2874,6 +2900,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__M_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__M_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           msg := RespL2(adr,GetM_Ack_DL2,m,inmsg.src,cbe.cl);
@@ -2900,6 +2927,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__M_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__M_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -2910,6 +2938,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__S_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__S_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL2:
           msg := RespL2(adr,Inv_AckL2,m,inmsg.src,cbe.cl);
@@ -2927,6 +2956,7 @@
       endswitch;
 
       case directoryL1_2_mevict__I__C__S_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__I__C__S_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -2937,6 +2967,7 @@
       endswitch;
 
       case directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2966,6 +2997,7 @@
       endswitch;
 
       case directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -2995,6 +3027,7 @@
       endswitch;
 
       case directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -3024,6 +3057,7 @@
       endswitch;
 
       case directoryL1_2_mevict__dM_x_pI_store__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_2_mevict__dM_x_pI_store__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL1_2:
           cbe.cl := inmsg.cl;
@@ -3062,11 +3096,13 @@
       alias cbe: i_cacheL1_1[m].cb[adr] do
     switch cbe.State
       case cacheL1_1_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         else return false;
       endswitch;
 
       case cacheL1_1_I_load:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_I_load"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_1:
           cbe.cl := inmsg.cl;
@@ -3079,6 +3115,7 @@
       endswitch;
 
       case cacheL1_1_I_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_I_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL1_1:
           cbe.cl := inmsg.cl;
@@ -3114,6 +3151,7 @@
       endswitch;
 
       case cacheL1_1_I_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_I_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -3135,6 +3173,7 @@
       endswitch;
 
       case cacheL1_1_M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML1_1:
           msg := RespL1_1(adr,GetM_Ack_DL1_1,m,inmsg.src,cbe.cl);
@@ -3156,6 +3195,7 @@
       endswitch;
 
       case cacheL1_1_M_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_M_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML1_1:
           msg := RespL1_1(adr,GetM_Ack_DL1_1,m,inmsg.src,cbe.cl);
@@ -3182,6 +3222,7 @@
       endswitch;
 
       case cacheL1_1_M_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_M_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL1_1:
           Clear_perm(adr, m);
@@ -3192,6 +3233,7 @@
       endswitch;
 
       case cacheL1_1_S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL1_1:
           msg := RespL1_1(adr,Inv_AckL1_1,m,inmsg.src,cbe.cl);
@@ -3204,6 +3246,7 @@
       endswitch;
 
       case cacheL1_1_S_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_S_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL1_1:
           msg := RespL1_1(adr,Inv_AckL1_1,m,inmsg.src,cbe.cl);
@@ -3221,6 +3264,7 @@
       endswitch;
 
       case cacheL1_1_S_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_S_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL1_1:
           Clear_perm(adr, m);
@@ -3231,6 +3275,7 @@
       endswitch;
 
       case cacheL1_1_S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL1_1:
           cbe.acksExpectedL1_1 := inmsg.acksRequiredL1_1;
@@ -3271,6 +3316,7 @@
       endswitch;
 
       case cacheL1_1_S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_1_S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -3304,6 +3350,7 @@
       alias cbe: i_directoryL2[m].cb[adr] do
     switch cbe.State
       case directoryL2_E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML2:
           msg := RequestL2(adr,Fwd_GetML2,inmsg.src,cbe.ownerL2);
@@ -3372,6 +3419,7 @@
       endswitch;
 
       case directoryL2_E_GetS:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_E_GetS"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL2:
           if (inmsg.src = cbe.ownerL2) then
@@ -3390,6 +3438,7 @@
       endswitch;
 
       case directoryL2_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML2:
           msg := RespAckL2(adr,GetM_Ack_ADL2,m,inmsg.src,cbe.cl,VectorCount_sharersL2(cbe.sharersL2));
@@ -3457,6 +3506,7 @@
       endswitch;
 
       case directoryL2_M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML2:
           msg := RequestL2(adr,Fwd_GetML2,inmsg.src,cbe.ownerL2);
@@ -3527,6 +3577,7 @@
       endswitch;
 
       case directoryL2_M_GetS:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_M_GetS"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL2:
           if !(inmsg.src = cbe.ownerL2) then
@@ -3545,6 +3596,7 @@
       endswitch;
 
       case directoryL2_S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL2_S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML2:
           if !(IsElement_sharersL2(cbe.sharersL2, inmsg.src)) then
@@ -3648,6 +3700,7 @@
       alias cbe: i_directoryL1_1[m].cb[adr] do
     switch cbe.State
       case directoryL1_1_I__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_I__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -3746,6 +3799,7 @@
       endswitch;
 
       case directoryL1_1_I__C__I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_I__C__I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_1:
           cbe.cluster_req_msg := inmsg;
@@ -3799,6 +3853,7 @@
       endswitch;
 
       case directoryL1_1_I__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_I__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -3897,6 +3952,7 @@
       endswitch;
 
       case directoryL1_1_I__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_I__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_1:
           cbe.cluster_req_msg := inmsg;
@@ -3973,6 +4029,7 @@
       endswitch;
 
       case directoryL1_1_M__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_M__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -4052,6 +4109,7 @@
       endswitch;
 
       case directoryL1_1_S__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_S__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -4191,6 +4249,7 @@
       endswitch;
 
       case directoryL1_1_S__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_S__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           cbe.invalidation_msg := inmsg;
@@ -4330,6 +4389,7 @@
       endswitch;
 
       case directoryL1_1_S__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_S__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetML1_1:
           cbe.cluster_req_msg := inmsg;
@@ -4405,6 +4465,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -4435,6 +4496,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetML2__dM_x_pI_store_GetM_Ack_AD__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -4465,6 +4527,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetML2__dM_x_pI_store__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetML2__dM_x_pI_store__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL1_1:
           cbe.cl := inmsg.cl;
@@ -4492,6 +4555,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetSL2__dM_GetS_x_pI_load__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetSL2__dM_GetS_x_pI_load__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_1:
           cbe.cl := inmsg.cl;
@@ -4513,6 +4577,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetSL2__dM_GetS_x_pS__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetSL2__dM_GetS_x_pS__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL1_1:
           if (inmsg.src = cbe.ownerL1_1) then
@@ -4547,6 +4612,7 @@
       endswitch;
 
       case directoryL1_1_mFwd_GetSL2__dS_x_pI_load__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mFwd_GetSL2__dS_x_pI_load__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_1:
           cbe.cl := inmsg.cl;
@@ -4579,6 +4645,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__I__C__I_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__I__C__I_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.cl := inmsg.cl;
@@ -4618,6 +4685,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__I__C__I_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__I__C__I_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -4640,6 +4708,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__I__C__S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__I__C__S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.acksExpectedL2 := inmsg.acksExpectedL2;
@@ -4698,6 +4767,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__I__C__S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__I__C__S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -4720,6 +4790,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__S__C__S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__S__C__S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL2:
           cbe.acksExpectedL2 := inmsg.acksExpectedL2;
@@ -4862,6 +4933,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__S__C__S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__S__C__S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL2:
           cbe.acksReceivedL2 := cbe.acksReceivedL2+1;
@@ -4926,6 +4998,7 @@
       endswitch;
 
       case directoryL1_1_mGetML1_1__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetML1_1__mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -4956,6 +5029,7 @@
       endswitch;
 
       case directoryL1_1_mGetSL1_1__I__C__I_load:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetSL1_1__I__C__I_load"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL2:
           cbe.cl := inmsg.cl;
@@ -4981,6 +5055,7 @@
       endswitch;
 
       case directoryL1_1_mGetSL1_1__M_GetS__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mGetSL1_1__M_GetS__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case WBL1_1:
           if (inmsg.src = cbe.ownerL1_1) then
@@ -5001,6 +5076,7 @@
       endswitch;
 
       case directoryL1_1_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mInvL2__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -5031,6 +5107,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__E_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__E_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           msg := RespL2(adr,GetM_Ack_DL2,m,inmsg.src,cbe.cl);
@@ -5057,6 +5134,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__E_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__E_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -5067,6 +5145,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__M_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__M_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML2:
           msg := RespL2(adr,GetM_Ack_DL2,m,inmsg.src,cbe.cl);
@@ -5093,6 +5172,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__M_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__M_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -5103,6 +5183,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__S_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__S_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL2:
           msg := RespL2(adr,Inv_AckL2,m,inmsg.src,cbe.cl);
@@ -5120,6 +5201,7 @@
       endswitch;
 
       case directoryL1_1_mevict__I__C__S_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__I__C__S_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL2:
           Clear_perm(adr, m);
@@ -5130,6 +5212,7 @@
       endswitch;
 
       case directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__E:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__E"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -5159,6 +5242,7 @@
       endswitch;
 
       case directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -5188,6 +5272,7 @@
       endswitch;
 
       case directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__dM_x_pI_store_GetM_Ack_AD__C__S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_1:
           cbe.acksReceivedL1_1 := cbe.acksReceivedL1_1+1;
@@ -5217,6 +5302,7 @@
       endswitch;
 
       case directoryL1_1_mevict__dM_x_pI_store__C__M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: directoryL1_1_mevict__dM_x_pI_store__C__M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_DL1_1:
           cbe.cl := inmsg.cl;
@@ -5255,11 +5341,13 @@
       alias cbe: i_cacheL1_2[m].cb[adr] do
     switch cbe.State
       case cacheL1_2_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         else return false;
       endswitch;
 
       case cacheL1_2_I_load:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_I_load"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetS_AckL1_2:
           cbe.cl := inmsg.cl;
@@ -5272,6 +5360,7 @@
       endswitch;
 
       case cacheL1_2_I_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_I_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL1_2:
           cbe.cl := inmsg.cl;
@@ -5307,6 +5396,7 @@
       endswitch;
 
       case cacheL1_2_I_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_I_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -5328,6 +5418,7 @@
       endswitch;
 
       case cacheL1_2_M:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_M"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML1_2:
           msg := RespL1_2(adr,GetM_Ack_DL1_2,m,inmsg.src,cbe.cl);
@@ -5349,6 +5440,7 @@
       endswitch;
 
       case cacheL1_2_M_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_M_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Fwd_GetML1_2:
           msg := RespL1_2(adr,GetM_Ack_DL1_2,m,inmsg.src,cbe.cl);
@@ -5375,6 +5467,7 @@
       endswitch;
 
       case cacheL1_2_M_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_M_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL1_2:
           Clear_perm(adr, m);
@@ -5385,6 +5478,7 @@
       endswitch;
 
       case cacheL1_2_S:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_S"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL1_2:
           msg := RespL1_2(adr,Inv_AckL1_2,m,inmsg.src,cbe.cl);
@@ -5397,6 +5491,7 @@
       endswitch;
 
       case cacheL1_2_S_evict:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_S_evict"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case InvL1_2:
           msg := RespL1_2(adr,Inv_AckL1_2,m,inmsg.src,cbe.cl);
@@ -5414,6 +5509,7 @@
       endswitch;
 
       case cacheL1_2_S_evict_x_I:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_S_evict_x_I"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Put_AckL1_2:
           Clear_perm(adr, m);
@@ -5424,6 +5520,7 @@
       endswitch;
 
       case cacheL1_2_S_store:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_S_store"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case GetM_Ack_ADL1_2:
           cbe.acksExpectedL1_2 := inmsg.acksRequiredL1_2;
@@ -5464,6 +5561,7 @@
       endswitch;
 
       case cacheL1_2_S_store_GetM_Ack_AD:
+				put "SS_PRINT:  "; put inmsg.mtype; put "  CASE: cacheL1_2_S_store_GetM_Ack_AD"; put "\n"; -- Sanya: inserted a print here
       switch inmsg.mtype
         case Inv_AckL1_2:
           cbe.acksReceivedL1_2 := cbe.acksReceivedL1_2+1;
@@ -5890,4 +5988,3 @@
     System_Reset();
   endstartstate;
 
---Backend/Murphi/MurphiModular/GenInvariant
