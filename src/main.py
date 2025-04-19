@@ -1,5 +1,12 @@
 """
-This file contains all code related to building the waits graph from the Murphi file
+This file contains all code related to building the waits graph from the Murphi file.
+In this project, I began implementing the code from scratch based on the descriptions 
+provided in the paper by Li et al. However, during the development process, I incorporated 
+several functions, particularly those related to the graph coloring algorithm, from the 
+authors’ publicly available codebase. As a result, the final implementation is a hybrid: 
+partially re-implemented and partially taken from the original code. 
+
+Public repo for the ISCA paper: https://github.com/Author1-isca24/ISCA24-AE/tree/main
 """
 
 import argparse
@@ -150,12 +157,12 @@ def run_murphi_code(file_path):
     file_path = file_path.split(".m")[0]
     
     # TODO (SanyaSriv): Uncomment the block below beore commiting the final code, this has been commented only for testing
-    cmd = f"""
-    make && 
-    ./{file_path} > {file_path}_output.txt"""
-    subprocess.run(cmd, shell=True,
-                   stdout=subprocess.DEVNULL,
-                   stderr=subprocess.DEVNULL)
+    # cmd = f"""
+    # make && 
+    # ./{file_path} > {file_path}_output.txt"""
+    # subprocess.run(cmd, shell=True,
+    #                stdout=subprocess.DEVNULL,
+    #                stderr=subprocess.DEVNULL)
     with open("{}_output.txt".format(file_path), 'r') as f:
         results = f.readlines()
 
@@ -509,6 +516,10 @@ def CauseSeq_dfs(full_text, msg, cause_sequence):
                         # if (processor != msg[1]) and (('directoryL1' in processor and 'directoryL1' in msg[1]) == False):
                         # print("explicit printing in here: ", [full_text_temp[j].split(',', 1)[1].split(',', 1)[0].strip(), msg[1], processor], ([full_text_temp[j].split(',', 1)[1].split(',', 1)[0].strip(), msg[1], processor] in edge_list))
                         if (processor != msg[1]) or ("cache" in processor and "cache" in msg[1]):
+                        # if not ((processor == "directoryL1_1" and msg[1] == "directoryL1_1" and msg[0] == "GetM_Ack_DL2")
+                            #    or ((processor == "directoryL1_2" and msg[1] == "directoryL1_2" and msg[0] == "GetM_Ack_DL1_2")) or
+                                #  ((processor == "directoryL1_1" and msg[1] == "directoryL1_1" and msg[0] == "GetM_Ack_DL1_1")) or
+                                #  ((processor == "directoryL1_2" and msg[1] == "directoryL1_2" and msg[0] == "GetM_Ack_DL2"))):
                             print(full_text_temp[j])
                             msg_next = [full_text_temp[j].split(',', 1)[1].split(',', 1)[0].strip(), processor]
                             print(msg[1], processor, " | ", msg[0], msg_next[0])
@@ -517,87 +528,7 @@ def CauseSeq_dfs(full_text, msg, cause_sequence):
     
     return cause_sequence
 
-# keeping this here to avoid any indefinite recursion
-
-# global_causes = {}
-# traversed = {}
-# def CauseSeq_dfs(full_text, msg, cause_sequence):
-#     end_tag = True
-#     msg_next = []
-#     full_text_temp = full_text
-#     print("Starting recursion for: ", msg, global_causes)
-#     traversed[msg] = True
-#     if msg in global_causes:
-#         return global_causes[msg]
-#     for i in range(0, len(full_text_temp)-1):
-#             case_msg = ("case " + "%s" + ":") % (msg)
-#             if case_msg in full_text_temp[i]:
-#                 for j in range(i+1, len(full_text_temp)-1):
-#                     if (("return" in full_text_temp[j]) or ("case" in full_text_temp[j])):
-#                         # this message doesn't have the following message
-#                         if (end_tag):
-#                             break
-#                         else:
-#                             # this message have the following message, then go to the next message
-#                             if msg_next not in global_causes:
-#                                 cause_sequence = CauseSeq_dfs(full_text, msg_next, cause_sequence)
-#                             else:
-#                                 cause_sequence = global_causes[msg_next]
-#                             break
-                            
-#                     if re.match("\s*msg.*:=.*", full_text_temp[j]):
-#                         # print(full_text_temp[j])
-#                         msg_next = full_text_temp[j].split(',', 1)[1].split(',', 1)[0].strip()
-#                         print("next message: ", msg_next)
-#                         cause_sequence.append(msg_next)
-#                         end_tag = False
-    
-#     global_causes[msg] = cause_sequence
-#     return global_causes[msg]
-
 global_causes = {}
-
-# def CauseSeq_dfs(full_text, msg, cause_sequence, visited=None):
-#     if visited is None:
-#         visited = set()  # Initialize the visited set at the start
-
-#     # Detect and prevent cycles
-#     if msg in visited:
-#         print(f"Cycle detected! Skipping recursion for {msg}")
-#         return global_causes.get(msg, [])  # Return stored result or an empty list
-
-#     if msg in global_causes:
-#         return global_causes[msg]
-
-#     # Mark msg as visited before further recursion
-#     visited.add(msg)
-
-#     end_tag = True
-#     msg_next = None  # Ensure msg_next is properly initialized
-#     full_text_temp = full_text
-
-#     print("Starting recursion for:", msg, global_causes)
-
-#     for i in range(len(full_text_temp) - 1):
-#         case_msg = f"case {msg}:"
-#         if case_msg in full_text_temp[i]:
-#             for j in range(i + 1, len(full_text_temp) - 1):
-#                 if "return" in full_text_temp[j] or "case" in full_text_temp[j]:
-#                     if end_tag:
-#                         break
-#                     else:
-#                         if msg_next and msg_next not in global_causes:
-#                             cause_sequence = CauseSeq_dfs(full_text, msg_next, cause_sequence, visited)
-#                         elif msg_next:
-#                             cause_sequence = global_causes[msg_next]
-#                         break
-                
-#                 match = re.match(r"\s*msg :=.*", full_text_temp[j])
-#                 if match:
-#                     msg_next = full_text_temp[j].split(',', 1)[1].split(',', 1)[0].strip()
-#                     print("Next message:", msg_next)
-#                     cause_sequence.append(msg_next)
-#                     end_tag = False
 
 #     # Store a copy to prevent mutation issues
 #     global_causes[msg] = cause_sequence.copy()
@@ -610,12 +541,12 @@ global_causes = {}
 
 def convert_sets(obj):
     if isinstance(obj, set):
-        return list(obj)  # Convert set to list
+        return list(obj)
     elif isinstance(obj, dict):
-        return {k: convert_sets(v) for k, v in obj.items()}  # Convert recursively
+        return {k: convert_sets(v) for k, v in obj.items()} 
     elif isinstance(obj, list):
-        return [convert_sets(i) for i in obj]  # Handle lists recursively
-    return obj  # Return as is if not a set
+        return [convert_sets(i) for i in obj] 
+    return obj 
 
 def gen_waits_graph(input_file, temp_file="put_{}.m", del_temp=False):
     """
@@ -644,7 +575,7 @@ def gen_waits_graph(input_file, temp_file="put_{}.m", del_temp=False):
     f = open(temp_file, 'w')
     f.write("".join(new_data))
     f.close()
-
+    
     # # running the Murphi code
     result = run_murphi_code(temp_file) # result will be a dictionary
     with open("useful_result_{}.txt".format(input_file.split("/")[-1].split(".m")[0]), 'w') as f:
@@ -736,25 +667,28 @@ def gen_waits_graph(input_file, temp_file="put_{}.m", del_temp=False):
     plt.figure(figsize=(12, 12))
     nx.draw(G_P, pos=pos, with_labels=True, node_color='lightblue', edge_color='gray') 
     nx.draw_networkx_edges(G_P, pos, edgelist=cyclic_edges, edge_color='red', width=2)
-    plt.savefig(('waitgraph_MSI_MSI_MOSI.png'.format(input_file)), format='png', dpi=300)
-    exit()
+    plt.savefig(('waitgraph_MSI_MSI_MESI.png'.format(input_file)), format='png', dpi=300)
+
     # if there is a cycle in the waits edge, then the protocol is considered class 2
     # adding Weihang;s code here justfor now
     min_fas = FAS_compute(G_P, waits_dictionary)
-
+    print("MINNN FAS = ", min_fas)
     # print(f"Finish finding the minimal feed back arc set, now start to find possible assignments for {max_vn} virtual networks\n")
 
     G_fas = set2graph(min_fas, get_MessageType(data))
-   
+    # G_removed = G_P.copy()
+    # G_removed.remove_edges_from(min_fas)
+    # print("graph tp be colored = ", G_removed.edges())
     # add wait_graph to the G_fas
     for msg_w in waits_dictionary:
         for msg_wfor in waits_dictionary[msg_w]:
             G_fas.add_edge(msg_w, msg_wfor)
         
     # # Now we play the graph coloring algorithm on the conflict graph
-    max_vn = 10
+    max_vn = 4
     print("Now start to find all the possible assignments")
-    colorings = graph_coloring(G_fas, max_vn, coloring={}, node_list=None)
+    print("GP = ", G_P.nodes())
+    colorings = graph_coloring(G_fas, max_vn, coloring={}, gppp=G_P)
     print(colorings)
     print(f"All the assignments for {max_vn} virtual networks are found!")   
     exit()
@@ -796,22 +730,24 @@ def FAS_compute(G_P, wait_dict):
         if all_edges[e] not in not_to_remove:
             removable_edges.append(all_edges[e])
     print("The number of removable edges are:", len(removable_edges))
-
-    # 2 optimization ideas in here -- 1. go in reverse iteration
-    # second optimization is to do binary search
-
-    # binrary search algorithm below
-    # num_edges = len(removable_edges)
-    # while True:
-
-    # for i in range(len(removable_edges), 2, -1):
-    for i in range(10, len(removable_edges)+1):
+    print(removable_edges)
+    print(not_to_remove)
+    # removing binary search from here, so we can
+    # see the minimal edges removed assignemnt from the base code
+    # Sanya - revert it back to binary search if there is need
+    for i in range(0, len(removable_edges)):
         print(f'{i} edges are removed')
         combi = itertools.combinations(removable_edges, i)
         for subset in itertools.combinations(removable_edges, i):
             # print("checked")
             if is_acyclic_after_removal(G_P, subset):
                 print("one of the good combinations have been found")
+                G_removed = G_P.copy()
+                G_removed.remove_edges_from(subset)
+                pos = nx.random_layout(G_removed, seed=4)
+                plt.figure(figsize=(12, 12))
+                nx.draw(G_P, pos=pos, with_labels=True, node_color='lightblue', edge_color='gray') 
+                plt.savefig(('small.png'), format='png', dpi=300)
                 if (i < min_size): 
                     min_fas = set(subset)
                     min_size = i
@@ -830,20 +766,22 @@ def is_valid_coloring(G_fas, coloring):
                 if coloring[neighbor] == coloring[node]:
                     return False
     return True
-def graph_coloring(G_fas, max_vn=10, coloring={}, node_list=None):
+def graph_coloring(G_fas, max_vn=10, coloring={}, node_list=None, gppp=None):
     if node_list is None:
-        node_list = list(G_fas.nodes())
+        node_list = list(gppp.nodes())
 
-    if len(coloring) == len(G_fas):
+    # if len(coloring) == len(G_fas):
+    if len(coloring) == len(list(gppp.nodes())):
         # pprint.pprint(coloring)
         return [dict(coloring)]
     
     colorings = []
+    print(len(node_list), len(coloring), len(G_fas))
     node = node_list[0]
     for color in range(max_vn):
         coloring[node] = color
         if is_valid_coloring(G_fas, coloring):
-            result = graph_coloring(G_fas, max_vn, coloring, node_list[1:])
+            result = graph_coloring(G_fas, max_vn, coloring, node_list[1:], gppp)
             colorings.extend(result)
             print(result)
             return colorings
@@ -870,7 +808,7 @@ def dict2graph(wait_dict, queue_dict, MessageType):
     # transform the wait_dict and queue_dict to the edges in G_O  
     for msg_w in wait_dict:
         for msg_wfor in wait_dict[msg_w]:
-            G_P.add_edge(msg_w, msg_wfor, weight=200)
+            G_P.add_edge(msg_w, msg_wfor, weight=400)
             wait_edge.add((msg_w, msg_wfor))
     
     if not nx.is_directed_acyclic_graph(G_P):
@@ -897,6 +835,7 @@ def dict2graph(wait_dict, queue_dict, MessageType):
             
     # print("This is *not* a class 2 protocol, we can break these cycles with a VN assignment.")
     return False, G_P_shortest, None
+    # return False, G_P, None
     
 def is_acyclic_after_removal(G_P, edges_to_remove):
     temp = G_P.copy()
