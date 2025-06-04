@@ -1,0 +1,6 @@
+{
+    "coherence_protocol": "../Protocols/MOSI.m",
+    "output_file": "None.txt",
+    "stalling": {},
+    "not_stalling": {}
+}
