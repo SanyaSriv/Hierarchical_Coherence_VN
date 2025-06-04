@@ -7,10 +7,16 @@ class DisjointSetForest:
     def __init__(self):
         self.parent = {}
         self.elements = []
+        self.link_information = {} # contains information about which messages can flow on which links
+        self.causal_relationships = {}
     
-    def make_set(self, element):
+    def make_set(self, element, link_list=None):
         self.parent[element] = element
         self.elements.append(element)
+        self.link_information[element] = link_list
+    
+    def add_causality(self, causal_relations):
+        self.causal_relationships = causal_relations
     
     def find_root(self, element):
         if self.parent[element] != element:
@@ -41,41 +47,53 @@ class DisjointSetForest:
             print("Set", counter, ":", ([i] + root_sets[i]) if [i] != root_sets[i] else ([i]))
             counter += 1
 
-def generate_stalling_not_stalling(murphi_file):
-    # TODO
-    stalling = {}
-    not_stalling = {}
-    return [stalling, not_stalling]
+class Protocol:
+    def __init__(self, murphi_file):
+        self.murphi = murphi_file
+        with open(self.murphi, 'r') as f:
+            self.data = f.readlines()
+        self.states = []
+        self.messages = []
+        self.causal_relationships = {}
+        self.stalling = {}
+        self.not_stalling = {}
+    
+    def extract_messages(self):
+        """
+        Data = contents of the Murphi file
+        Function to exatract the list of messages from the Murphi file. 
+        """
+        for i in range(0, len(self.data)):
+            if "MessageType:" in self.data[i]:
+                for j in range(i+1, len(self.data)):
+                    if "};" in self.data[j]:
+                        break
+                    self.messages.append(self.data[j].strip().replace(" ", "").replace(",", ""))
 
-def extract_messages(data):
-    """
-    Data = contents of the Murphi file
-    Function to exatract the list of messages from the Murphi file. 
-    """
-    message_types = []
-    for i in range(0, len(data)):
-        if "MessageType:" in data[i]:
-            for j in range(i+1, len(data)):
-                if "};" in data[j]:
-                    break
-                message_types.append(data[j].strip().replace(" ", "").replace(",", ""))
-    return message_types
+    def extract_states(self):
+        """
+        Data = contents of the Muprhi file
+        Function to extract the list of states from the Murphi file.
+        """
+        state_decl = r"\s*.*(cache|directory).*:\s*enum\s*{\s*"
+        for i in range(0, len(self.data)):
+            if re.fullmatch(state_decl, self.data[i]) is not None:
+                print(self.data[i])
+                for j in range(i+1, len(self.data)):
+                    if "};" in self.data[j]:
+                        break
+                    self.states.append(self.data[j].strip().replace(" ", "").replace(",", ""))
 
-def extract_states(data):
-    """
-    Data = contents of the Muprhi file
-    Function to extract the list of states from the Murphi file.
-    """
-    states = []
-    state_decl = r"\s*.*(cache|directory).*:\s*enum\s*{\s*"
-    for i in range(0, len(data)):
-        if re.fullmatch(state_decl, data[i]) is not None:
-            print(data[i])
-            for j in range(i+1, len(data)):
-                if "};" in data[j]:
-                    break
-                states.append(data[j].strip().replace(" ", "").replace(",", ""))
-    return states
+    def generate_stalling_not_stalling(self, stalling, not_stalling):
+        # TODO
+        if len(stalling) == 0 or len(not_stalling) == 0:
+            # generate the stalling dictionary by running the Murphi code
+            pass
+
+        self.stalling = stalling
+        self.not_stalling = not_stalling
+
+        
 
 def make_sets(messages, states, causal_relationships):
     """
@@ -87,6 +105,8 @@ def make_sets(messages, states, causal_relationships):
     M_Sets = DisjointSetForest()
     for msg in messages:
         M_Sets.make_set(msg)
+    M_Sets.add_causality(causal_relationships) # add the causal relationships between messages
+
     return M_Sets
 
 def get_link_information(data):
@@ -103,33 +123,21 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("json_file", help="Path to the input JSON file")
     args = parser.parse_args()
-    stalling = {}
-    not_stalling = {}
-    messages = []
-    states = []
-
     meta_data = get_json_information(args.json_file)
-    if len(meta_data['stalling']) == 0 or len(meta_data['not_stalling'] == 0):
-        # generate the stalling dictionary by running the Murphi code
-        result = generate_stalling_not_stalling(meta_data['coherence_protocol'])
-        stalling = result[0]
-        not_stalling = result[1]
+    protocol = Protocol(meta_data['coherence_protocol'])
 
-    with open(meta_data['coherence_protocol'], 'r') as f:
-        murphi_data = f.readlines()
+    # extract the states, messages, and causal relationships from the Murphi model
+    protocol.extract_messages()
+    protocol.extract_states()
+    protocol.generate_stalling_not_stalling(meta_data['stalling'], meta_data['not_stalling'])
 
-    # extract the states and messages from the Murphi model
-    messages = extract_messages(murphi_data)
-    states = extract_states(murphi_data)
-
-    print("Stalling dictionary = ", stalling)
-    print("Not stalling dictionary = ", not_stalling)
-    print("List of all messages = ", messages)
-    print("List of all states = ", states)
+    print("Stalling dictionary = ", protocol.stalling)
+    print("Not stalling dictionary = ", protocol.not_stalling)
+    print("List of all messages = ", protocol.messages)
+    print("List of all states = ", protocol.states)
 
     # Now we start the algorithm
-    causal_relationships = [] # initializing this to an empty list for testing
-    M_sets = make_sets(messages, states, causal_relationships)
+    M_sets = make_sets(protocol.messages, protocol.states, protocol.causal_relationships)
     M_sets.pretty_print() # printing the initial list
 
 if __name__ == "__main__":
