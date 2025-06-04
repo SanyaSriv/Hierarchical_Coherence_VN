@@ -60,7 +60,6 @@ class Protocol:
     
     def extract_messages(self):
         """
-        Data = contents of the Murphi file
         Function to exatract the list of messages from the Murphi file. 
         """
         for i in range(0, len(self.data)):
@@ -72,7 +71,6 @@ class Protocol:
 
     def extract_states(self):
         """
-        Data = contents of the Muprhi file
         Function to extract the list of states from the Murphi file.
         """
         state_decl = r"\s*.*(cache|directory).*:\s*enum\s*{\s*"
@@ -83,6 +81,33 @@ class Protocol:
                     if "};" in self.data[j]:
                         break
                     self.states.append(self.data[j].strip().replace(" ", "").replace(",", ""))
+
+    def extract_causal_relationships(self):
+        """
+        Function to extract causal relationships between message types (not classes)
+        """
+        # send_msg_re = r'\s*Send_.*\(.*?\);\s*'
+        # case_re = r'\s*case\s*(.*?):\s*'
+        for i in range(0, len(self.data)):
+            if re.match("\s*msg :=.*", self.data[i]):
+                # found an instance where a message is sent
+                msg1 = self.data[i].split(',')[1].strip()
+                for j in range(i, 0, -1):
+                    if "case" in self.data[j]:
+                        msg2 = self.data[j].strip().split(" ")[1].replace(",", "").replace(" ", "")
+                        if msg2 in self.causal_relationships:
+                            if msg1 not in self.causal_relationships[msg2]:
+                                self.causal_relationships[msg2].append(msg1)
+                        else:
+                            self.causal_relationships[msg2] = [msg1]
+                        break
+                    if "procedure" in self.data[j]:
+                        # this means the message was not sent because another message caused it - but because of
+                        # an operation like a load or a store
+                        # not doing anything special for this case - for now
+                        break
+        print("causal relationships", self.causal_relationships)
+
 
     def generate_stalling_not_stalling(self, stalling, not_stalling):
         # TODO
@@ -130,6 +155,7 @@ def main():
     protocol.extract_messages()
     protocol.extract_states()
     protocol.generate_stalling_not_stalling(meta_data['stalling'], meta_data['not_stalling'])
+    protocol.extract_causal_relationships()
 
     print("Stalling dictionary = ", protocol.stalling)
     print("Not stalling dictionary = ", protocol.not_stalling)
