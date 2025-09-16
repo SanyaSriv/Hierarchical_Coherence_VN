@@ -1,0 +1,29 @@
+{
+    "File": "put_MSI_Sanya.m",
+    "Topology": "Tree",
+    "Nodes": ["N1", "N2", "N3", "N4", "N5", "N6", "N7"],
+    "Node_definition": 
+    {
+        "DirectoryL2": "N1",
+        "DirectoryL1_1": "N2",
+        "DirectoryL1_2": "N3",
+        "CacheL1_1_1": "N4",
+        "CacheL1_1_2": "N5",
+        "CacheL1_2_1": "N6",
+        "CacheL1_2_2": "N7"
+    },
+    "LinkStructure":
+    {
+        "N7": ["N3"],
+        "N6": ["N3"],
+        "N4": ["N2"],
+        "N5": ["N2"],
+        "N2": ["N1", "N4", "N5"],
+        "N3": ["N1", "N6", "N7"],
+        "N1": ["N2", "N3"]
+    },
+    "clusterL1": {
+        "L1_1": ["N4", "N5"],
+        "L1_2": ["N6", "N7"] 
+    }
+}
