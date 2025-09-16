@@ -219,6 +219,8 @@ def main():
         link_information = get_possible_paths_from_src_to_dest(data['LinkStructure'], data['Node_definition'], result[0], result[1])
 
     print("Link information: ", link_information)
+    with open("topology_out_{}.json".format(data['File'].split(".")[0]), "w") as f:
+        json.dump(link_information, f, indent=4)
     G = build_graph_from_linkstructure(data)
     draw_graph(G, out_path)
     print(f"Wrote {out_path}")
