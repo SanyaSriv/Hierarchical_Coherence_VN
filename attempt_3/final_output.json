@@ -1,0 +1,36 @@
+{
+    "Topology": {
+        "Bi-directional Ring": {
+            "dimensions": 1,
+            "num_VN": ["VN1", "VN2", "VN3"],
+            "msg_VN": {
+                "VN1": [],
+                "VN2": [],
+                "VN3": []
+            },
+            "causal_chain_length": {
+                "VN1": 1,
+                "VN2": 2,
+                "VN3": 1
+            },
+            "msg_class_separation": "True",
+            "hierarchy_interleaving": "False"
+        },
+        "Mesh": {
+            "dimensions": 2,
+            "num_VN": ["VN1", "VN2", "VN3"],
+            "msg_VN": {
+                "VN1": ["something", "somethign2"],
+                "VN2": [],
+                "VN3": []
+            },
+            "causal_chain_length": {
+                "VN1": 1,
+                "VN2": 2,
+                "VN3": 1
+            },
+            "msg_class_separation": "True",
+            "hierarchy_interleaving": "False"
+        }
+    }
+}
